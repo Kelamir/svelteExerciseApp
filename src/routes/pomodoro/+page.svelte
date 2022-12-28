@@ -6,9 +6,12 @@
 
 <script>
     let pomLength = 25;
+    let log = "Pom wasn't started."
+
 
     function startPom() {
-        console.log("imagine it started.")
+        log = "Time passed instantly. You are finished with work." +
+              " Don't trust what your clock is telling you"
     }
 </script>
 
@@ -23,6 +26,8 @@
 <button on:click={startPom}>
     start pomodoro
 </button>
+
+<p>Log: {log}</p>
 
 
 
