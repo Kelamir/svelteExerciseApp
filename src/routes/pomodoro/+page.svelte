@@ -5,32 +5,43 @@
 
 
 <script>
-    let pomLength = 25;
-    let log = "Pom wasn't started."
+    import { writable } from 'svelte/store';
+    import { onDestroy } from "svelte";
 
+    let countdown = writable(1500); // 25 minutes default
 
-    function startPom() {
-        log = "Time passed instantly. You are finished with work." +
-              " Don't trust what your clock is telling you"
+    function startPomTheProWay() {
+        let intervalID = setInterval(() => {
+            countdown.update(n => n - 1);
+        }, 1000);
+
+        onDestroy(() => {
+            clearInterval(intervalID);
+        });
     }
 </script>
 
 
-<h1>Pomodoro productivity timer.</h1>
+<div>
+    <h1>Pomodoro productivity timer.</h1>
 
-<label>
-    <input type="number" bind:value={pomLength} min=10, max=120>
-    <input type="range" bind:value={pomLength} min=10, max=120>
-</label>
+    <label>
+        <input type="number" bind:value={countdown} min=10 max=120>
+        <br>
+        <input type="range" bind:value={countdown} min=10 max=120> Minutes
+    </label>
 
-<button on:click={startPom}>
-    start pomodoro
-</button>
 
-<p>Log: {log}</p>
+    <button on:click={startPomTheProWay}>
+        start pomodoro
+    </button>
+
+    <p>Countdown: {$countdown}</p>
+</div>
 
 
 
 <style>
-
+    button { margin-top: 10px; width: fit-content}
+    div { display: flex; flex-direction: column}
 </style>
