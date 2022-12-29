@@ -5,11 +5,22 @@
 
 
 <script>
+    import {writable} from "svelte/store";
 
+    let interval;
     let inputMinutes = 25;
+    $: countdown = writable(inputMinutes * 60);
 
-    let start = new Date().getTime() / 1000;
-    $: end = start + (inputMinutes * 60);
+    function startPom() {
+        let start = new Date().getTime() / 1000;
+        let end = start + (inputMinutes * 60);
+
+        countdown = end - start;
+
+        let interval = setInterval(() => {
+            countdown.update(n => n - 1);
+        }, 1000);
+    }
 
 </script>
 
@@ -21,10 +32,11 @@
         <input type="range" bind:value={inputMinutes} min=10 max=120 step=5>
     </label>
     <p>Pom length: {inputMinutes}</p>
-    <p>difference: {(end - start) / 60} minutes</p>
 
-    <p>current date: {start}</p>
-    <p>date to finish: {end}</p>
+    <button on:click={startPom}>
+        Start
+    </button>
+    <p>Countdown: {$countdown}</p>
 </div>
 
 
