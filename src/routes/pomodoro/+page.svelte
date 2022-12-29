@@ -14,12 +14,12 @@
 <div class="text-column">
     <h1>Pomodoro productivity timer.</h1>
 
-    {#if (started === false)}
-        <NotStartedMenu />
-    {:else}
+    {#if $started}
         <StartedMenu />
-        <p>Pom started.</p>
+    {:else}
+        <NotStartedMenu />
     {/if}
+
 
 </div>
 
