@@ -5,43 +5,31 @@
 
 
 <script>
-    import { writable } from 'svelte/store';
-    import { onDestroy } from "svelte";
 
-    let countdown = writable(1500); // 25 minutes default
+    let inputMinutes = 25;
 
-    function startPomTheProWay() {
-        let intervalID = setInterval(() => {
-            countdown.update(n => n - 1);
-        }, 1000);
+    let start = new Date().getTime() / 1000;
+    $: end = start + (inputMinutes * 60);
 
-        onDestroy(() => {
-            clearInterval(intervalID);
-        });
-    }
 </script>
 
 
-<div>
+<div class="text-column">
     <h1>Pomodoro productivity timer.</h1>
 
     <label>
-        <input type="number" bind:value={countdown} min=10 max=120>
-        <br>
-        <input type="range" bind:value={countdown} min=10 max=120> Minutes
+        <input type="range" bind:value={inputMinutes} min=10 max=120>
     </label>
+    <p>Pom length: {inputMinutes}</p>
+    <p>difference: {(end - start) / 60} minutes</p>
 
-
-    <button on:click={startPomTheProWay}>
-        start pomodoro
-    </button>
-
-    <p>Countdown: {$countdown}</p>
+    <p>current date: {start}</p>
+    <p>date to finish: {end}</p>
 </div>
 
 
 
 <style>
-    button { margin-top: 10px; width: fit-content}
+    button { width: fit-content}
     div { display: flex; flex-direction: column}
 </style>
