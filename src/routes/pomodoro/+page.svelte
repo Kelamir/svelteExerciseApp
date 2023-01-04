@@ -3,7 +3,8 @@
 <script>
     import NotStartedMenu from "./NotStartedMenu.svelte";
     import StartedMenu from "./StartedMenu.svelte";
-    import {isStarted} from "./stores.ts";
+    import {isStarted} from "../../stores.ts";
+    import StartStopButton from "../../components/StartStopButton.svelte";
 
 </script>
 
@@ -21,6 +22,7 @@
     {:else}
         <NotStartedMenu />
     {/if}
+    <StartStopButton />
 
 
 </div>

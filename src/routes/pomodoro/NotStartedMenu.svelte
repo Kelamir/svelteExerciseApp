@@ -1,5 +1,5 @@
 <script>
-    import { inputMinutes, isStarted } from "./stores.ts";
+    import { inputMinutes, isStarted } from "../../stores.ts";
 
 </script>
 
@@ -10,9 +10,7 @@
     </label>
     <p>Pom length: {$inputMinutes}</p>
 
-    <button on:click={isStarted.update((n) => !$isStarted)}>
-        Start
-    </button>
+
 </div>
 
 
