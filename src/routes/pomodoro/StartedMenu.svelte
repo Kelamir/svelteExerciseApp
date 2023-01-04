@@ -4,20 +4,21 @@
     let start = new Date().getTime() / 1000;
     $: end = start + ($inputMinutes * 60);
     $: totalSeconds = end - start;
-    let minutes = 0
-    let seconds = 0
+    let minutes = 0;
+    let seconds = 0;
 
     let timeRemaining = totalSeconds;
-        setInterval(() => {
-            if (timeRemaining !== 0) {
-                const current = new Date().getTime() / 1000
-                timeRemaining = end - current;
-                minutes = Math.floor(timeRemaining / 60);
-                seconds = Math.floor(timeRemaining % 60);
-            }
-            else console.log("Congrats, pom finished.")
+    const interval = setInterval(() => {
+        const current = new Date().getTime() / 1000
+        timeRemaining = end - current;
+        minutes = Math.floor(timeRemaining / 60);
+        seconds = Math.floor(timeRemaining % 60);
+        if (timeRemaining === 0) {
+            console.log("Congrats, pom finished.");
+            clearInterval(interval);
+        }
 
-        }, 1000);
+    }, 1000);
 
 </script>
 
