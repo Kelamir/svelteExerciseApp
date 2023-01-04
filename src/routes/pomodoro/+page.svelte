@@ -1,11 +1,13 @@
 
 
 <script>
+    import {isFinished, isStarted} from "../../stores.js";
+
     import NotStartedMenu from "./NotStartedMenu.svelte";
     import StartedMenu from "./StartedMenu.svelte";
-    import {isStarted} from "../../stores.ts";
-    import StartStopButton from "../../components/StartStopButton.svelte";
+    import FinishedMenu from "./FinishedMenu.svelte";
 
+    import StartStopButton from "../../components/StartStopButton.svelte";
 </script>
 
 
@@ -19,9 +21,13 @@
 
     {#if $isStarted}
         <StartedMenu />
+    {:else if $isFinished}
+        <FinishedMenu />
+        <NotStartedMenu />
     {:else}
         <NotStartedMenu />
     {/if}
+
     <StartStopButton />
 
 

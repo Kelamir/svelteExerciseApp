@@ -1,8 +1,8 @@
 <script>
-    import {isStarted} from "../stores.ts";
+    import {isStarted} from "../stores.js";
 </script>
 
-<button on:click={isStarted.update((n) => !$isStarted)}>
+<button on:click={() => isStarted.set(!$isStarted)}>
     {#if $isStarted}
         Stop
     {:else}

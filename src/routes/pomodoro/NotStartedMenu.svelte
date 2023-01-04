@@ -1,5 +1,5 @@
 <script>
-    import { inputMinutes, isStarted } from "../../stores.ts";
+    import { inputMinutes} from "../../stores.js";
 
 </script>
 
@@ -12,9 +12,3 @@
 
 
 </div>
-
-
-<style>
-    button { width: fit-content}
-</style>
-
