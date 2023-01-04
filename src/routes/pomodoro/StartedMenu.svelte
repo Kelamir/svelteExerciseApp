@@ -8,12 +8,16 @@
     let seconds = 0
 
     let timeRemaining = totalSeconds;
-    setInterval(() => {
-        const current = new Date().getTime() / 1000
-        timeRemaining = end - current;
-        minutes = Math.floor(timeRemaining / 60);
-        seconds = timeRemaining % 60;
-    }, 1000);
+        setInterval(() => {
+            if (timeRemaining !== 0) {
+                const current = new Date().getTime() / 1000
+                timeRemaining = end - current;
+                minutes = Math.floor(timeRemaining / 60);
+                seconds = Math.floor(timeRemaining % 60);
+            }
+            else console.log("Congrats, pom finished.")
+
+        }, 1000);
 
 </script>
 
