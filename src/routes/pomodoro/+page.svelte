@@ -3,8 +3,8 @@
 <script>
     import {isFinished, isStarted} from "../../stores.js";
 
-    import NotStartedMenu from "./NotStartedMenu.svelte";
-    import StartedMenu from "./StartedMenu.svelte";
+    import NewPomodoro from "./NewPomodoro.svelte";
+    import InProgressPomodoro from "./InProgressPomodoro.svelte";
     import FinishedMenu from "./FinishedMenu.svelte";
 
     import StartStopButton from "../../components/StartStopButton.svelte";
@@ -20,12 +20,12 @@
     <h1>Pomodoro productivity timer.</h1>
 
     {#if $isStarted}
-        <StartedMenu />
+        <InProgressPomodoro />
     {:else if $isFinished}
         <FinishedMenu />
-        <NotStartedMenu />
+        <NewPomodoro />
     {:else}
-        <NotStartedMenu />
+        <NewPomodoro />
     {/if}
 
     <StartStopButton />
