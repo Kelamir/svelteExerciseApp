@@ -3,9 +3,9 @@
 <script>
     import {isFinished, isStarted} from "../../stores.js";
 
-    import SetDuration from "./SetDuration.svelte";
-    import InProgressPomodoro from "./InProgressPomodoro.svelte";
-    import FinishedMenu from "./FinishedMenu.svelte";
+    import SetDuration from "../../components/SetDuration.svelte";
+    import InProgressPomodoro from "../../components/InProgressPomodoro.svelte";
+    import FinishedMenu from "../../components/FinishedMenu.svelte";
 
     import StartStopButton from "../../components/StartStopButton.svelte";
 </script>

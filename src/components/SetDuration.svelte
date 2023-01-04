@@ -1,5 +1,5 @@
 <script>
-    import { inputMinutes} from "../../stores.js";
+    import { inputMinutes} from "../stores.js";
 
 </script>
 
