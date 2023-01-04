@@ -1,5 +1,7 @@
 <script>
     import {isStarted} from "../stores.js";
+
+
 </script>
 
 <button on:click={() => isStarted.set(!$isStarted)}>

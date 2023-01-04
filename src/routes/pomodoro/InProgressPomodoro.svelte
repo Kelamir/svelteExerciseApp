@@ -8,7 +8,7 @@
     let seconds = 0;
 
     let timeRemaining = totalSeconds;
-    const interval = setInterval(() => {
+    export const interval = setInterval(() => {
         const current = new Date().getTime() / 1000
         timeRemaining = end - current;
         minutes = Math.floor(timeRemaining / 60);
