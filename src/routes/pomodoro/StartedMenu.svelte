@@ -1,5 +1,5 @@
 <script>
-    import {inputMinutes, isStarted} from "../../stores.ts";
+    import { inputMinutes } from "../../stores.ts";
 
     let start = new Date().getTime() / 1000;
     $: end = start + ($inputMinutes * 60);
