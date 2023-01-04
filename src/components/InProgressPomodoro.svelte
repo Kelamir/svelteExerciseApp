@@ -13,7 +13,7 @@
         timeRemaining = end - current;
         minutes = Math.floor(timeRemaining / 60);
         seconds = Math.floor(timeRemaining % 60);
-        if (timeRemaining === 0) {
+        if (timeRemaining < 0) {
             console.log("Congrats, pom finished.");
             clearInterval(interval);
             $isFinished = true;
@@ -25,6 +25,7 @@
 </script>
 
 <div>
+    {@debug timeRemaining}
     <p>Pomodoro has been started.</p>
     <p>Time left: {minutes}m and {seconds}s</p>
 </div>
