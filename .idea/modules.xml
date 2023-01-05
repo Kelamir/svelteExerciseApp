@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/svelteExerciseApp.iml" filepath="$PROJECT_DIR$/.idea/svelteExerciseApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Pomosvelte/.idea/Pomosvelte.iml" filepath="$PROJECT_DIR$/../Pomosvelte/.idea/Pomosvelte.iml" />
     </modules>
   </component>
 </project>
