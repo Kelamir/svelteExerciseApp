@@ -1,5 +1,5 @@
 <script>
-    import { inputMinutes, isFinished, isStarted } from "../stores.js";
+    import { inputMinutes, isFinished, isStarted, isTimeToResetInterval } from "../stores.js";
 
     let start = new Date().getTime() / 1000;
     $: end = start + ($inputMinutes * 60);
@@ -14,10 +14,12 @@
         minutes = Math.floor(timeRemaining / 60);
         seconds = Math.floor(timeRemaining % 60);
         if (timeRemaining < 0) {
-            console.log("Congrats, pom finished.");
             clearInterval(interval);
             $isFinished = true;
             $isStarted = false;
+        } else if ($isTimeToResetInterval) {
+            clearInterval(interval)
+            $isTimeToResetInterval = false;
         }
 
     }, 1000);
@@ -25,7 +27,6 @@
 </script>
 
 <div>
-    {@debug timeRemaining}
     <p>Pomodoro has been started.</p>
     <p>Time left: {minutes}m and {seconds}s</p>
 </div>
